@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포털시스템 로그인</title>
+    <link
+        rel="SHORTCUT ICON"
+        href="https://www.hallym.ac.kr/.resources/hallym_univ_theme/hallym/ko/img/common/16xfavi.ico"
+        type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            /*background: rgb(204, 204, 204);*/
+            background-image: url("https://www.hallym.ac.kr/.resources/hallym_univ_theme/hallym/ko/img/main/storybg.jpg");
+            background-repeat: no-repeat;
+        }
+        #wrapper {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .login_new {
+            position: absolute;
+            top: 50%;
+            height: 645px;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            /*border: 1px solid red;*/
+        }
+        #sidemenu {
+            font-size: 13px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 53px;
+            background: white;
+            border-bottom: 1px solid #aaa;
+        }
+        #sidemenu > .side_bar > span {
+            background: url("https://www.hallym.ac.kr/.resources/hallym_univ_theme/hallym/ko/img/abouthallym/symbol-ui-logo1.png");
+            background-size: 100%;
+            position: absolute;
+            top: 6px;
+            left: 49%;
+            margin-left: -50px;
+            text-indent: -99999px;
+            width: 130px;
+            height: 43px;
+        }
+        #sidemenu > .sub_area {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            list-style: none;
+            display: block;
+        }
+        #sidemenu > .sub_area > a {
+            color: black;
+            text-decoration: none;
+        }
+        .login_form {
+            position: relative;
+            width: 416px;
+            margin: 0 auto;
+            height: 100%;
+            /*border: 1px solid yellow;*/
+            border-radius: 10px;
+            background: rgb(255, 255, 255, 0.9);
+
+        }
+        .header {
+            /*border: 1px solid blueviolet;*/
+            height: 184px;
+            text-align: center;
+        }
+        .logo_png {
+            position: relative;
+            top: 15px;
+            width: 200px;
+        }
+        .header > h2 {
+            margin-top: 20px;
+            font-size: 29px;
+            font-weight: bold;
+            color: rgb(20, 21, 109);
+        }
+        .login_box {
+            /*: 1px solid black;*/
+            width: 340px;
+            height: auto;
+            margin: 20px auto;
+        }
+        .login_box > input {
+            width: 93.5%;
+            height: 30px;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            outline-style: none;
+            border: 1px solid gray;
+        }
+        .check {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .buttons > * {
+            font-size: 14px;
+            border-radius: 5px;
+            width: 100%;
+            padding: 12px;
+            outline-style: none;
+            border-style: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #submit {
+            background: rgb(6, 40, 102);
+            color: white;
+
+        }
+        #find {
+            background: rgb(211, 211, 211);
+            color: rgb(75, 75, 75);
+        }
+        #footer {
+            position: absolute;
+            font-size: 11px;
+            bottom: 0;
+            left: 0;
+            background: white;
+            border-top: 1px solid #aaa;
+            width: 100%;
+            height: 35px;
+        }
+        #footer > p {
+            margin-left: 23px;
+            margin-top: 10px;
+        }
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            top: 15px;
+            margin: auto;
+            padding: 0;
+            overflow: hidden;
+        }
+        .banner ul {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .banner ul li {
+            float: left;
+            width: 420px;
+            height: 180px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="JavaScript">
+        $(document).ready(function () {
+            var $banner = $(".banner").find("ul");
+
+            var $bannerWidth = $banner
+                .children()
+                .outerWidth(); //이미지의 폭
+            var $bannerHeight = $banner
+                .children()
+                .outerHeight(); // 높이
+            var $length = $banner
+                .children()
+                .length; //이미지의 갯수
+            var rollingId;
+
+            //정해진 초마다 함수 실행
+            rollingId = setInterval(function () {
+                rollingStart();
+            }, 5000); //다음 이미지로 롤링 애니메이션 할 시간차
+
+            function rollingStart() {
+                $banner.css("width", $bannerWidth * $length + "px");
+                $banner.css("height", $bannerHeight + "px");
+                //alert(bannerHeight); 배너의 좌측 위치를 옮겨 준다.
+                $banner.animate({
+                    left: -$bannerWidth + "px"
+                }, 1500, function () { //숫자는 롤링 진행되는 시간이다.
+                    //첫번째 이미지를 마지막 끝에 복사(이동이 아니라 복사)해서 추가한다.
+                    $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
+                    //뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
+                    $(this)
+                        .find("li:first")
+                        .remove();
+                    //다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
+                    $(this).css("left", 0);
+                    //이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
+                });
+            }
+        });
+
+        function find() {
+            alert("학번/사번조회 불가능입니다.")
+        }
+
+        function fnLogin() {
+            var objLogin = document.getElementById("user_id");
+            var objPasswd = document.getElementById("user_pw");
+
+            if (objLogin.value == "") {
+                alert("학번이나 사번을 입력하세요.");
+                objLogin.focus();
+                return;
+            } else if (objPasswd.value == "") {
+                alert("비밀번호를 입력하세요.");
+                objPasswd.focus();
+                return;
+            }
+
+            if (objLogin.value == "test" && objPasswd.value == "test") {
+                location.href = 'portal.html'
+            } else {
+                alert("학번/사번 또는 패스워드를 잘못입력하셨습니다.");
+                return;
+            }
+
+        } // end function fnLogin()
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="login_new">
+            <div class="login_form">
+                <div class="header">
+                    <img
+                        class="logo_png"
+                        src="https://www.hallym.ac.kr/.resources/hallym_univ_theme/hallym/ko/img/abouthallym/symbol-ui-signature9.png">
+                    <h2>포털시스템</h2>
+                </div>
+                <div class="login_box">
+                    <input class="login_id" id="user_id" type="text" placeholder="학번이나 사번을 입력하세요.">
+                    <input
+                        class="login_password"
+                        id="user_pw"
+                        type="password"
+                        placeholder="패스워드를 입력하세요.">
+                    <div class="check">
+                        <label>
+                            <input class="login_check" id="user_check" type="checkbox">
+                            <span>기억하기</span>
+                        </label>
+                    </div>
+                    <div class="buttons">
+                        <input type="button" id="submit" value="로그인" onclick="fnLogin()">
+                        <input type="button" id="find" value="학번/사번조회" onclick="find()" ;=";">
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="banner">
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://www.hallym.ac.kr/hallym_univ/sub02/cP7/sCP1.html?action=read&nttId=16314421&pageIndex=1"><img src="banner_01.jpg" width="100%" height="100%">
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.hallym.ac.kr/hallym_univ/sub04/cP1/sCP2.html?action=read&nttId=16314347&pageIndex=1"><img src="banner_02.jpg" width="100%" height="100%">
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="http://blog.hallym.ac.kr/222133488229"><img src="banner_03.jpg" width="100%" height="100%">
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="http://blog.hallym.ac.kr/221996190155"><img src="banner_04.jpg" width="100%" height="100%">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sidemenu">
+            <div class="side_bar">
+                <span>한림대학교</span>
+            </div>
+            <div class="sub_area">
+                <a href="https://www.hallym.ac.kr/">홈페이지</a>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Copyright © 2020 SEONGJIN. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

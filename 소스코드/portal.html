@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallym PORTAL</title>
+    <link
+        rel="SHORTCUT ICON"
+        href="https://www.hallym.ac.kr/.resources/hallym_univ_theme/hallym/ko/img/common/16xfavi.ico"
+        type="image/x-icon">
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/ea77b1cb5c.js" crossorigin="anonymous"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    a {
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+    }
+    body {
+        margin: 0 auto;
+        font-family: 'Noto Sans KR', sans-serif;
+        padding: 0;
+        background: white;
+        width: 100%;
+    }
+    header {
+        height: 30px;
+        background-color: rgb(39, 81, 160);
+        width: 100%;
+    }
+    #header_contents {
+        float: right;
+        margin-right: 40px;
+        line-height: 30px;
+        color: white;
+        font-size: 13px;
+    }
+
+    nav {
+        border-bottom: 1px solid rgb(218, 218, 218);
+    }
+    .nav_in {
+        width: 1130px;
+        height: 64px;
+        margin: 0 auto;
+    }
+    .nav-item > a {
+        font-size: 15px;
+        font-weight: 700;
+        color: black;
+    }
+    .navbar .nav-item:not(:last-child) {
+        margin-right: 25px;
+    }
+    .dropdown-toggle::after {
+        transition: transform 0.15s linear;
+    }
+    .show.dropdown .dropdown-toggle::after {
+        transform: translateY(3px);
+    }
+
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        width: 1170px;
+        padding: 20px 30px;
+        margin: 0 auto;
+    }
+    /* 왼쪽 사이드 영역*/
+    aside {
+        width: 300px;
+        height: 1000px;
+        border: 1px solid rgb(207, 207, 207);
+        display: flex;
+        flex-direction: column;
+    }
+    #profile {
+        background: rgb(39, 81, 160);
+        height: 125px;
+        padding: 13px;
+    }
+    .profile_imgtxt {
+        display: flex;
+        height: 100%;
+    }
+    .profile_img {
+        height: 100%;
+        width: 83px;
+        border: 1px solid white;
+    }
+    .profile_txt {
+        padding: 0 9px;
+        color: white;
+    }
+    .myinfo_list_con {
+        font-size: 13px;
+        padding: 0;
+    }
+    #mypage_logout_btn {
+        height: 60px;
+        padding: 13px 59px;
+        border-bottom: 1px solid rgb(207, 207, 207);
+        line-height: 30px;
+    }
+    #four_menu {
+        display: flex;
+        grid-template-columns: auto;
+        height: 71px;
+        text-align: center;
+        border-bottom: 1px solid rgb(207, 207, 207);
+    }
+    #four_menu > div {
+        flex: 1;
+    }
+    .title {
+        margin: 5px 20px;
+        padding: 10px;
+        border-bottom: 1px solid rgb(141, 141, 141);
+        font-weight: bold;
+        font-size: 13px;
+        text-align: center;
+    }
+    #today {
+        height: 152px;
+        border-bottom: 1px solid rgb(201, 201, 201);
+    }
+    .today_study {
+        color: white;
+        margin: 5px;
+        padding: 1px;
+        font-size: 11px;
+        background: #0d3e6b;
+        border-radius: 5px;
+    }
+    .today_haksa {
+        color: white;
+        margin: 5px;
+        padding: 1px;
+        font-size: 11px;
+        background: #007969;
+        border-radius: 5px;
+    }
+    .today_div {
+        margin: 18px 10px 10px 10px;
+        overflow: auto;
+        height: 76px;
+    }
+    .today_div::-webkit-scrollbar {
+        width: 6px;
+    }
+    .today_div::-webkit-scrollbar-thumb {
+        background: #535353;
+    }
+    .today_div::-webkit-scrollbar-track {
+        background: #dfdfdf;
+    }
+    #bookkeeper {
+        height: 80px;
+        font-weight: bold;
+        color: black;
+        font-size: 12px;
+        text-align: center;
+        border-bottom: 1px solid rgb(207, 207, 207);
+    }
+    #time_table {
+        background: white;
+        font-size: 9px;
+        height: 320px;
+        border-bottom: 1px solid rgb(207, 207, 207);
+    }
+    #score {
+        height: 190px;
+        font-weight: bold;
+        color: black;
+        font-size: 12px;
+    }
+    .tablecover {
+        padding: 0 10px;
+    }
+    .tableWrapper {
+        margin: 10px 0;
+        overflow: auto;
+        text-align: center;
+        height: 126px;
+    }
+    .tableWrapper::-webkit-scrollbar {
+        width: 6px;
+    }
+    .tableWrapper::-webkit-scrollbar-thumb {
+        background: #535353;
+    }
+    .tableWrapper::-webkit-scrollbar-track {
+        background: #dfdfdf;
+    }
+    .score_table {
+        width: 270px;
+    }
+    .score_table td,
+    .socre_table th {
+        padding: 0;
+    }
+    .score_table th {
+        position: sticky;
+        background: rgb(0, 11, 109);
+        color: white;
+        top: 0;
+    }
+
+    /* 본문 영역*/
+    article {
+        flex: 3;
+        margin: 0 0 0 15px;
+    }
+    #contents {
+        float: left;
+        width: 231px;
+        margin-bottom: 10px;
+        border: 1px solid rgb(201, 201, 201);
+    }
+    .contents_title {
+        margin: 0;
+        background: #f1f1f1;
+        font-size: 16px;
+        padding: 8px 12px;
+        font-weight: bold;
+    }
+    #notice {
+        float: left;
+        border: 1px solid rgb(207, 207, 207);
+        width: 460px;
+        height: 309px;
+        margin : 0 10px 10px 0;
+    }
+    #link_div {
+        float: left;
+        border: 1px solid rgb(207, 207, 207);
+        width: 323px;
+        height: 309px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .link_buttons_div {
+        display: flex;
+        flex-wrap :wrap;
+        align-content: flex-start;
+        height: 247px;
+        width: 301px;
+        text-align: center;
+        margin: 10px;
+    }
+    .link_buttons_div > div {
+        padding: 7px;
+        border: 1px solid rgb(241, 241, 241);
+        line-height: 18px;
+        height: 49.3px;
+        width: 150px;
+        font-size: 12px;
+        color: rgb(102, 102, 102);
+    }
+    .link_buttons_div > div:hover {
+        background-color: rgb(39, 81, 160);
+        color: white;
+    }
+    .list-group-item {
+        padding: 2px 12px;
+    }
+    #news_story {
+        float: left;
+        width: 270px;
+        height: 333px;
+        margin: 0 10px 10px 0;
+        border: 1px solid rgb(201, 201, 201);
+    }
+    .card-img-top {
+        height: 140px;
+    }
+
+    .sns_block {
+        flex-grow: 1;
+        text-align: left;
+        padding: 10px 0 11px 70px;
+        vertical-align: middle;
+        color: rgb(241, 241, 241);
+        border-top: 1px solid rgb(252, 252, 252);
+        font-size: 15px;
+        background: #0556a1;
+        font-weight: 500;
+    }
+
+    #haksa_1, #haksa_2, #haksa_3, #haksa_4,#haksa_5,#haksa_6,#haksa_7,#haksa_8,#haksa_9,#haksa_10,#haksa_11,#haksa_12 {
+        margin: 5px 0;
+        overflow: auto;
+        height: 38px;
+    }
+    .haksa::-webkit-scrollbar {
+        width: 6px;
+    }
+    .haksa::-webkit-scrollbar-thumb {
+        background: #535353;
+    }
+    .haksa::-webkit-scrollbar-track {
+        background: #dfdfdf;
+    }
+
+    footer {
+        width: 100%;
+        padding: 15px 20px;
+        background: #727272;
+        color: rgb(139, 139, 139);
+        height: 70px;
+        line-height: 20px;
+
+    }
+    footer span {
+        float: left;
+        color: white;
+        font-size: 12px;
+    }
+
+</style>
+<body>   
+    <!-- 상단 영역 -->
+    <header>
+        <div id="header_contents">
+            <span>(학부생/재학생)
+            </span>
+            <span>홍길동</span><span>님이 로그인하셨습니다.</span>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="portal.html" style="color: white;">
+                <span>포털 홈</span></a>
+            <span>&nbsp;|&nbsp;</span>
+            <span>포털 이용안내</span>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="Login_Page.html" style="color: white;">
+                <span>로그아웃</span></a>
+        </div>
+    </div>
+    </header>
+<!-- 로고 + 메뉴 영역 -->
+<nav>
+    <div class="nav_in">
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="portal.html">
+                    <img
+                        class="logo horizontal-logo"
+                        src="https://www.hallym.ac.kr/.resources/hallym_univ_theme/hallym/ko/img/common/logo-white.png"
+                        alt="한림대학교 로고"
+                        style="width: 140px;">
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://mail.hallym.ac.kr/index.aspx">웹메일</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown2"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                                웹정보(학사서비스)
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="https://was1.hallym.ac.kr:8081/HLMS/main/LoginPage.do">통합정보시스템</a>
+                                <a class="dropdown-item" href="https://rnd.hallym.ac.kr/main_0001_03.act">연구행정통합시스템</a>
+                                <a class="dropdown-item" href="https://ody.hallym.ac.kr/">한림오디세이</a>
+                                <a class="dropdown-item" href="https://uni.webminwon.com/servlet/WMINDEX?COMMAND=ACTIVEX&GIWANNO=024201">인터넷증명발급</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://smartlead.hallym.ac.kr/login.php">SmartLEAD</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://library.hallym.ac.kr/">일송기념도서관</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">동아리</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">학사일정</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown2"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                                커뮤니티
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="#">자유게시판</a>
+                                <a class="dropdown-item" href="">FAQ</a>
+                                <a class="dropdown-item" href="">설문조사</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</nav>
+<!-- 메인 영역 -->
+<section>
+    <aside>
+        <div id="profile">
+            <div class="profile_imgtxt">
+                <img
+                    class="profile_img"
+                    src="https://i.pinimg.com/474x/1c/4b/f0/1c4bf0cdcc3102126b7caeb8749f5c55.jpg">
+                <div class="profile_txt">
+                    <ul class="myinfo_list_con">
+                        <li>이름 :
+                            <span>홍길동</span></li>
+                        <li>학번 :
+                            <span>00000000</span></li>
+                        <li>대학 :
+                            <span>소프트웨어융합대학</span></li>
+                        <li>학과 :
+                            <span>소프트웨어융합대학</span></li>
+                        <li>전공 :
+                            <span>소프트웨어융합대학</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="mypage_logout_btn">
+            <button
+                type="button"
+                class="btn btn-primary"
+                style="border: 0px; background: #0ba4ca; font-size: 14px; margin-right: 10px;">마이페이지</button>
+            <button
+                type="button"
+                class="btn btn-light" onclick="location.href='Login_Page.html' "
+                style="background: #dbdbdb; font-size: 14px;">로그아웃</button>
+        </div>
+        <div id="four_menu">
+            <div
+                class="tbgrid rgrid"
+                style="padding: 13px 0 0; font-size: 11px; border-right: 1px solid rgb(207, 207, 207);">
+                <i class="fas fa-envelope-open-text" style="font-size: 20px; color: black; "></i><br>웹메일<br>
+                <a href="http://mail.hallym.ac.kr/main_frame.aspx" style="color: black;">0</a>
+            </div>
+            <div
+                class="tbgrid rgrid"
+                style="padding: 13px 0 0; font-size: 11px; border-right: 1px solid rgb(207, 207, 207);">
+                <i class="fas fa-comments" style="font-size: 20px; color: black;"></i><br>쪽지<br>
+                <a href="" style="color: black;">0</a>
+            </div>
+            <div
+                class="tbgrid rgrid"
+                style="padding: 13px 0 0; font-size: 11px; border-right: 1px solid rgb(207, 207, 207);">
+                <i class="fas fa-desktop" style="font-size: 20px; color: black;"></i><br>E-class<br>
+                <a href="https://smartlead.hallym.ac.kr/" style="color: black;">0</a>
+            </div>
+            <div class="tbgrid" style="padding: 13px 0 0; font-size: 11px;">
+                <i class="fas fa-edit" style="font-size: 20px; color: black;"></i><br>FAQ<br>
+                <a href="" style="color: black;">0</a>
+            </div>
+        </div>
+        <div id="today">
+            <div class="title" style="margin: 5px 20px;">오늘 일정표</div>
+            <div class="today_div">
+                <span class="today_study">수강</span><span style="font-size: 13px;">1교시 OOOOO수업 - 공학관 0000호실</span><br>
+                <span class="today_study">수강</span><span style="font-size: 13px;">3교시 OOOOO수업 - 공학관 0000호실</span><br>
+                <span class="today_study">수강</span><span style="font-size: 13px;">5교시 OOOOO수업 - 공학관 0000호실</span><br>
+                <span class="today_study">수강</span><span style="font-size: 13px;">7교시 OOOOO수업 - 공학관 0000호실</span><br>
+                <span class="today_haksa">학사</span><span style="font-size: 13px;">성적 제출 마감</span><br>
+            </div>
+        </div>
+        <div id="bookkeeper" style="background: rgb(243, 243, 243);">
+            <div class="title" style="margin: 5px 20px;">도서대출</div>
+            <div class="book_txt">
+                <span style="margin-right: 10px;">대출<span style="margin-left: 10px;">0</span></span>
+                <span style="margin-right: 10px;">|</span>
+                <span style="margin-right: 10px;">예약<span style="margin-left: 10px;">0</span></span>
+                <span style="margin-right: 10px;">|</span>
+                <span>연체<span style="margin-left: 10px;">0</span></span>
+            </div>
+        </div>
+        <div id="time_table" style="text-align: center;">
+            <div class="title" style="margin: 5px 20px">수강시간표</div>
+            <table
+                class="table table-bordered table-sm"
+                style="margin: 15px; width: 267px;">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">시간</th>
+                        <th style="text-align: center;">월</th>
+                        <th style="text-align: center;">화</th>
+                        <th style="text-align: center;">수</th>
+                        <th style="text-align: center;">목</th>
+                        <th style="text-align: center;">금</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9교시</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="score">
+            <div class="title">성적 현황</div>
+            <div class="tablecover">
+                <div class="tableWrapper">
+                    <table class="score_table" style="border-collapse: collapse; font-size: 8px;">
+                        <thead>
+                            <tr>
+                                <th scope="col">학년도</th>
+                                <th scope="col">학기</th>
+                                <th scope="col">신청학점</th>
+                                <th scope="col">취득학점</th>
+                                <th scope="col">합계평점</th>
+                                <th scope="col">평균평점</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2020</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2019</th>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2019</th>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2019</th>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2019</th>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+    <article>
+        <!-- 공지사항 영역 -->
+        <div id="notice">
+            <div class="contents_title">공지사항</div>
+            <div class="notice_tap" style="padding: 10px;">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#notice_one">학사</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#notice_two">장학</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#notice_three">행사</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#notice_four">취업</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#notice_five">일반</a>
+                    </li>
+                </ul>
+                <div
+                    class="tab-content"
+                    style="border: 1px solid rgb(207, 207, 207); height: 206px; padding-top: 6px;">
+                    <div class="tab-pane fade show active" id="notice_one">
+                        <ul class="list-group list-group-flush" style="line-height: 16px;">
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 수강철회 및 대체재이수 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-17
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="notice_two">
+                        <ul class="list-group list-group-flush" style="line-height: 16px;">
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 수강철회 및 대체재이수 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-17
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="notice_three">
+                        <ul class="list-group list-group-flush" style="line-height: 16px;">
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 수강철회 및 대체재이수 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-17
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="notice_four">
+                        <ul class="list-group list-group-flush" style="line-height: 16px;">
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 수강철회 및 대체재이수 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-17
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="notice_five">
+                        <ul class="list-group list-group-flush" style="line-height: 16px;">
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 수강철회 및 대체재이수 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-17
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 바로가기 영역 -->
+        <div id="contents" style="width: 323px; height: 309px; border: 1px solid rgb(201, 201, 201);">
+            <div class="contents_title">바로가기</div>
+            <div class="link_buttons_div">
+                <div style=" cursor: pointer;" onclick="location.href='https://haksa.hallym.ac.kr/hluv/';"><i class="fas fa-chalkboard" style="font-size: 20px;"></i><br>수강신청</div>
+                <div style=" cursor: pointer;" onclick="location.href='https://att.hallym.ac.kr/login';"><i class="fas fa-user-shield" style="font-size: 20px;"></i><br>전자출결시스템</div>
+                <div style=" cursor: pointer;" onclick="location.href='https://www.hallym.ac.kr/';"><i class="fas fa-school" style="font-size: 20px;"></i><br>대표홈페이지</div>
+                <div style=" cursor: pointer;" onclick="location.href='http://dorm.hallym.ac.kr/dormitory/index.do';"><i class="far fa-building" style="font-size: 20px;"></i><br>생활관</div>
+                <div style=" cursor: pointer;" onclick="location.href='https://www.hallym.ac.kr/hallym_univ/sub07/cP1';"><i class="fas fa-phone-square-alt" style="font-size: 20px;"></i><br>주요민원연락처</div>
+                <div style=" cursor: pointer;" onclick="location.href='https://uni.webminwon.com/servlet/WMINDEX?COMMAND=ACTIVEX&GIWANNO=024201';"><i class="fas fa-print" style="font-size: 20px;"></i><br>인터넷증명발급</div>
+                <div style=" cursor: pointer;" onclick="location.href='https://shinmungo.hallym.ac.kr/report/index.do';"><i class="fas fa-microphone-alt" style="font-size: 20px;"></i><br>한림신문고</div>
+                <div style=" cursor: pointer;" onclick="location.href='https://www.hallym.ac.kr/hallym_univ/sub04/cP6/sCP4';"><i class="fas fa-bus" style="font-size: 20px;"></i><br>셔틀버스</div>
+                                <div style=" cursor: pointer;" onclick="location.href='https://intern.hallym.ac.kr:6443/intern/main.do';"><i class="far fa-handshake" style="font-size: 20px;"></i><br>현장실습지원센터</div>
+                <div style=" cursor: pointer;" onclick="location.href='https://job.hallym.ac.kr:8443/hlym2/user/main/';"><i class="far fa-address-card" style="font-size: 20px;"></i><br>취업진로지원센터</div>
+            </div>
+        </div>  
+        <!-- News 영역 -->
+        <div id="news_story">
+            <div class="contents_title">News</div>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card text-center" style="margin: 10px; height: 270px;">
+                            <img
+                                src="https://image.news1.kr/system/photos/2020/11/1/4457875/article.jpg/dims/optimize"
+                                class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <div
+                                    style="height: 20px; margin-bottom: 13px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-title" style="font-size: 14px; font-weight: bold;">한림대 데이터청년캠퍼스 프로젝트 ‘우수상‧장려상’</p>
+                                </div>
+                                <div
+                                    style="height: 54px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-text" style="font-size: 12px;">강원 한림대는 한국데이터산업진흥원 주최 ‘데이터청년캠퍼스 프로젝트 발표회’에서 교내 ‘페퍼민트팀’과 ‘코칭팀’이 각각 우수상과 장려상을 수상했다고 1일 밝혔다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center" style="margin: 10px; height: 270px;">
+                            <img
+                                src="http://www.enewstoday.co.kr/news/photo/202011/1424912_484102_1414.jpg"
+                                class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <div
+                                    style="height: 20px; margin-bottom: 13px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-title" style="font-size: 14px; font-weight: bold;">한림대 LINC+사업단, 제3회 한림국제지역혁신포럼 개최</p>
+                                </div>
+                                <div
+                                    style="height: 54px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-text" style="font-size: 12px;">한림대학교(총장 김중수) LINC+사업단(단장 송창근)에서는 5일 오후 2시부터 교내 캠퍼스라이프센터에서 '대학과 지역사회가 만드는 미래산업 창의공간'이라는 주제로 '제3회 한림국제지역혁신포럼'을 개최한다.
+                                        ​</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center" style="margin: 10px; height: 270px;">
+                            <img
+                                src="https://cdn.kado.net/news/photo/202010/1045166_473940_381.jpeg"
+                                class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <div
+                                    style="height: 20px; margin-bottom: 13px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-title" style="font-size: 14px; font-weight: bold;">대학 축제 새로운 변신, ‘언택트’로 만나요</p>
+                                </div>
+                                <div
+                                    style="height: 54px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-text" style="font-size: 12px;">​
+                                        코로나19의 지역사회 확산이 반복되면서 대학 축제 기간마다 가수들을 초청해 공연을 하고,주점에 앉아 술을 마시는 왁자지껄한 풍경은 모두 옛말이 됐다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a
+                    class="carousel-control-prev"
+                    href="#carouselExampleControls"
+                    role="button"
+                    data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a
+                    class="carousel-control-next"
+                    href="#carouselExampleControls"
+                    role="button"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- Hallym story 영역 -->
+        <div id="news_story">
+            <div class="contents_title">Hallym Story</div>
+            <div id="carouselExampleControls_1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card text-center" style="margin: 10px; height: 270px;">
+                            <img
+                                src="http://postfiles10.naver.net/MjAyMDA5MDlfMjAy/MDAxNTk5NjQzNjUwNzMy.eDjrrUvlaFEHkqS4be4cnBadsMySMxlFg3isUiNmNtUg.qC64RZSNR4Yj3NVgp0eyrEo_tCowTgVuVfK-rxgTwL8g.JPEG.hallymde1330/SE-fa36629b-f9ac-4bd1-af2e-180a32efc080.jpg?type=w966"
+                                class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <div
+                                    style="height: 20px; margin-bottom: 13px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-title" style="font-size: 14px; font-weight: bold;">여기가 도서관이라고요? 살아있는 도서관, 변화를 꾀하다!</p>
+                                </div>
+                                <div
+                                    style="height: 54px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-text" style="font-size: 12px;">시원한 청량감 넘치는 통유리가 시선을 압도한다. 푸른빛의 유리와 세련되고 편안한 베이지 톤 가구는 심리적 안정감을 느끼게 하며, 은은한 조명은 아늑하고 집중도를 높일 수 있는 분위기를 연출한다. 3층 높이까지 막힘없이 확 트인 높은 층고는 도서관 전반의 공간감을 깊게 해 주며, 통유리를 통해 들어오는 햇살을 도서관 깊숙이 끌어들여 시원하고도 쾌적한 개방감을 선사한다. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center" style="margin: 10px; height: 270px;">
+                            <img
+                                src="http://postfiles3.naver.net/MjAyMDA5MjlfMTE1/MDAxNjAxMzU5MzA5MTYw.fyuRd-DiQ1vX9fgMH0aW7tTfHmOiAHgdhaRTYJjs5uMg.RbwytlPYzqfeKeMdvED_TAPbY0h8oBhqRAEyLHbU2cUg.JPEG.hallymde1330/SE-0de0fcab-85e5-42d7-be0d-5ed08d96135b.jpg?type=w966"
+                                class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <div
+                                    style="height: 20px; margin-bottom: 13px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-title" style="font-size: 14px; font-weight: bold;">노동의 가치, 일하는 기쁨 : 근로 장학생의 세계</p>
+                                </div>
+                                <div
+                                    style="height: 54px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-text" style="font-size: 12px;">상에 존재하는 수많은 아르바이트 중, 오직 '대학생'만이 경험할 수 있는 특별한 아르바이트가 있습니다. 바로 학교 곳곳, 보이지 않는 곳에서 일하고 있는 '근로 장학생'들의 이야기입니다. 학생들의 복지를 위한 학생지원팀에서부터 도서관, 박물관, 장비지원팀에 이르기까지... 교내 근로 장학생은 정말 다양한 부서에서 다양한 경험을 하고 있습니다. 공강을 이용, 가깝게 교내에서 일할 수 있는 근로 장학생은 어디에서 또 무슨 일을 하고 있는지... 대학생들의 흔한 아르바이트, 공부하며 일하는 근로 장학생들을 만나봤습니다.
+                                        ​</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card text-center" style="margin: 10px; height: 270px;">
+                            <img
+                                src="http://postfiles3.naver.net/MjAyMDEwMTJfMjU3/MDAxNjAyNDkxNjQzNDMy.jZ6xl9w6-anNOlyubNozmCfl-n5yG0pf8I6zy3SZFd8g.9jpNMUYzvWYt3UeSfqzl-ljFEpkEaf5e3gNpHjmoNU8g.JPEG.hallymde1330/SE-d107884a-e0c0-40bf-8eb3-f806abd23238.jpg?type=w966"
+                                class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <div
+                                    style="height: 20px; margin-bottom: 13px; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-title" style="font-size: 14px; font-weight: bold;">한림, 어떻게 지내?! 한림의 2학기 모습을 담다</p>
+                                </div>
+                                <div
+                                    style="height: 54px;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+                                word-wrap:break-word; text-overflow: ellipsis; overflow: hidden;">
+                                    <p class="card-text" style="font-size: 12px;">​
+                                        비대면 수업으로 1학기를 마무리하고 상황이 호전되길 바라며 저마다 새로운 목표와 설렘을 간직한 채 2학기 대면 강의를 기대한 우리. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a
+                    class="carousel-control-prev"
+                    href="#carouselExampleControls_1"
+                    role="button"
+                    data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a
+                    class="carousel-control-next"
+                    href="#carouselExampleControls_1"
+                    role="button"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- SNS 영역 -->
+        <div id="contents" style="height: 333px; width: 233px;">
+            <div class="contents_title">SNS</div>
+            <div class="youtube" style="padding: 10px 10px 5px 10px ;">
+                <iframe
+                    width="210"
+                    height="130"
+                    src="https://www.youtube.com/embed/kPF0b71r7GU"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="allowfullscreen"></iframe>
+            </div>
+            <div
+                class="fa_bl_in"
+                style="display: flex; flex-direction: column; padding: 0px 10px;">
+                <a href="https://www.facebook.com/hallymuni" target="_blank">
+                    <div class="sns_block">
+                        <i class="fab fa-youtube"></i>
+                        페이스북</div>
+                </a>
+                <a href="https://instagram.com/hallym_university" target="_blank">
+                    <div class="sns_block">
+                        <i class="fab fa-instagram"></i>
+                        인스타그램</div>
+                </a>
+                <a href="http://blog.naver.com/hallymde1330" target="_blank">
+                    <div class="sns_block">
+                        <i class="fas fa-blog"></i>
+                        블로그</div>
+                </a>
+            </div>
+        </div>
+        <!-- vote 영역 -->
+        <div id="contents" style="height: 143px; width: 270px; margin-right: 10px;">
+            <div class="contents_title">설문조사</div>
+            <div style="padding: 8px 12px; font-size: 13px;">
+                <i class="fas fa-check-circle"></i>
+                <span>
+                    진행 중인 설무 조사가 없습니다.</span></div>
+        </div>
+        <!-- 학사일정 영역 -->
+        <div id="contents" style="height: 143px; width: 513px;">
+            <div class="contents_title">학사일정</div>
+                <div class="haksa_tap" style="padding: 10px;">
+                    <ul class="nav nav-tabs" style="font-size: 3px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#haksa_1" style="font-size: 12px; padding:5px 8px;">1월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_2"   style="font-size: 12px; padding:5px 8px;">2월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_3"   style="font-size: 12px; padding:5px 8px;">3월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_4"  style="font-size: 12px; padding:5px 8px;">4월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_5"   style="font-size: 12px; padding:5px 8px;">5월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_6"   style="font-size: 12px; padding:5px 8px;">6월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_7"  style="font-size: 12px; padding:5px 8px;">7월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_8"  style="font-size: 12px; padding:5px 8px;">8월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_9"   style="font-size: 12px; padding:5px 8px;">9월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_10"   style="font-size: 12px; padding:5px 8px;">10월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_11"   style="font-size: 12px; padding:5px 8px;">11월</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#haksa_12"   style="font-size: 12px; padding:5px 8px;">12월</a>
+                    </ul>
+                    <div
+                        class="tab-content haksa"
+                        style="border: 1px solid rgb(207, 207, 207); height: 50px;">
+                        <div class="tab-pane fade show active" id="haksa_1">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_2">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_3">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_4">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_5">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_6">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_7">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_8">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_9">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_10">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_11">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="haksa_12">
+                            <ul class="list-group list-group-flush" style="line-height: 16px;">
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 학사학위취득 유예 신청 안내(2021년 2월 졸업예정자 대상)<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 폐강강좌 수강생 추가 수강신청 안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[교무팀] 2020학년도 2학기 조기졸업 신청안내<br></span><span style="font-size: 11px; color: #727272;">2020-09-11
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span style="font-size: 13.5px;">[취업진로지원센터] 실전 취업준비교과목 - 취업성공전략<br></span><span style="font-size: 11px; color: #727272;">2020-09-02
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 캠퍼스맵 영역 -->
+        <div id="contents" style="height: 185px; width: 270px; margin-right: 10px; margin-bottom: 0;">
+            <div class="contents_title">캠퍼스맵</div>
+            <div style="padding: 5px;">
+                <img src="캠퍼스맵.jpg" width="259px" height="133px" title="클릭하시면 원본크기로 보실 수 있습니다."
+     style="cursor: pointer;" onclick="window.open('https://www.hallym.ac.kr/.resources/preview/doc.html?fn=dam_d9a764e6-1c6c-4142-a5b7-73fdc6295b78_1585640647771.pdf&rs=/.preview/')"/>
+            </div>
+        </div>
+
+        <div id="contents" style="height: 185px; width: 513px; border: 1px solid rgb(201, 201, 201);">
+            <img src="한림대학교.jpg" style="width: 512px; height: 184px;"></div>
+    </article>
+</section>
+<!-- 푸터 영역 -->
+<footer>
+    <span>(24252)강원도 춘천시 한림대학길 1 / 대표 033-248-1000 / 입학안내 033-248-1302~4 / 팩스 033-248-3333<br>
+        COPYRIGHT© 2020 Han Seongjin. ALL RIGHTS RESERVED.</span>
+</footer>
+</body>
+<script>
+const $dropdown = $(".dropdown");
+const $dropdownToggle = $(".dropdown-toggle");
+const $dropdownMenu = $(".dropdown-menu");
+const showClass = "show";
+
+$(window).on("load resize", function () {
+    if (this.matchMedia("(min-width: 768px)").matches) {
+        $dropdown.hover(function () {
+            const $this = $(this);
+            $this.addClass(showClass);
+            $this
+                .find($dropdownToggle)
+                .attr("aria-expanded", "true");
+            $this
+                .find($dropdownMenu)
+                .addClass(showClass);
+        }, function () {
+            const $this = $(this);
+            $this.removeClass(showClass);
+            $this
+                .find($dropdownToggle)
+                .attr("aria-expanded", "false");
+            $this
+                .find($dropdownMenu)
+                .removeClass(showClass);
+        });
+    } else {
+        $dropdown.off("mouseenter mouseleave");
+    }
+});
+</script>
+<script>
+$(document).ready(() => {
+    let url = location
+        .href
+        .replace(/\/$/, "");
+
+    if (location.hash) {
+        const hash = url.split("#");
+        $('#myTab a[href="#' + hash[1] + '"]').tab("show");
+        url = location
+            .href
+            .replace(/\/#/, "#");
+        history.replaceState(null, null, url);
+        setTimeout(() => {
+            $(window).scrollTop(0);
+        }, 400);
+    }
+
+    $('a[data-toggle="tab"]').on("click", function () {
+        let newUrl;
+        const hash = $(this).attr("href");
+        if (hash == "#home") {
+            newUrl = url.split("#")[0];
+        } else {
+            newUrl = url.split("#")[0] + hash;
+        }
+        newUrl += "/";
+        history.replaceState(null, null, newUrl);
+    });
+});
+</script>
+<script>
+    function doImgPop(img){ 
+ img1= new Image(); 
+ img1.src=(img); 
+ imgControll(img); 
+} 
+  
+function imgControll(img){ 
+ if((img1.width!=0)&&(img1.height!=0)){ 
+    viewImage(img); 
+  } 
+  else{ 
+     controller="imgControll('"+img+"')"; 
+     intervalID=setTimeout(controller,20); 
+  } 
+}
+
+function viewImage(img){ 
+ W=img1.width; 
+ H=img1.height; 
+ O="width="+W+",height="+H+",scrollbars=yes"; 
+ imgWin=window.open("","",O); 
+ imgWin.document.write("<html><head><title>이미지상세보기</title></head>");
+ imgWin.document.write("<body topmargin=0 leftmargin=0>");
+ imgWin.document.write("<img src="+img+" onclick='self.close()' style='cursor:pointer;' title ='클릭하시면 창이 닫힙니다.'>");
+ imgWin.document.close();
+}
+</script>
+</html>
