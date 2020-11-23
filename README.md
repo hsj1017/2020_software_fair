@@ -34,6 +34,6 @@
     + 이미지 슬라이드 구현
 
 ## 바로가기
-[로그인페이지](http://flatty12.dothome.co.kr/)
-[포털사이트](http://flatty12.dothome.co.kr/portal.html)
+* [로그인페이지](http://flatty12.dothome.co.kr/)
+* [포털사이트](http://flatty12.dothome.co.kr/portal.html)
 
