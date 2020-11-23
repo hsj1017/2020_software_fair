@@ -36,8 +36,7 @@
     + 이미지 슬라이드 구현
 
 ## 바로가기
-* [로그인페이지](http://flatty12.dothome.co.kr/)<br>
-[코드보기](https://github.com/hsj1017/2020_software_fair/blob/main/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C/Login_Page.html)
+* [로그인페이지](http://flatty12.dothome.co.kr/)   [<코드보기>](https://github.com/hsj1017/2020_software_fair/blob/main/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C/Login_Page.html)
 * [포털사이트](http://flatty12.dothome.co.kr/portal.html)
    + [코드보기](https://github.com/hsj1017/2020_software_fair/blob/main/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C/portal.html)
 
