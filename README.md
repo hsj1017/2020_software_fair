@@ -33,7 +33,7 @@
     + 학번과 패스워드에 test 입력시에만 로그인 가능
     + 이미지 슬라이드 구현
 
-
-## [로그인페이지](http://flatty12.dothome.co.kr/)
+## 바로가기
+[로그인페이지](http://flatty12.dothome.co.kr/)
 [포털사이트](http://flatty12.dothome.co.kr/portal.html)
 
