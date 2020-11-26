@@ -14,14 +14,12 @@
             margin: 0;
             padding: 0;
             font-family: 'Noto Sans KR', sans-serif;
-            /*background: rgb(204, 204, 204);*/
             background-image: url("https://www.hallym.ac.kr/.resources/hallym_univ_theme/hallym/ko/img/main/storybg.jpg");
             background-repeat: no-repeat;
         }
         #wrapper {
-            width: 100%;
-            height: 100%;
-            margin: 0 auto;
+            min-height: 100%;
+            margin: 0 auto -35px;
         }
         .login_new {
             position: absolute;
@@ -30,7 +28,6 @@
             transform: translateY(-50%);
             left: 0;
             right: 0;
-            /*border: 1px solid red;*/
         }
         #sidemenu {
             font-size: 13px;
@@ -69,13 +66,11 @@
             width: 416px;
             margin: 0 auto;
             height: 100%;
-            /*border: 1px solid yellow;*/
             border-radius: 10px;
             background: rgb(255, 255, 255, 0.9);
 
         }
         .header {
-            /*border: 1px solid blueviolet;*/
             height: 184px;
             text-align: center;
         }
@@ -91,7 +86,6 @@
             color: rgb(20, 21, 109);
         }
         .login_box {
-            /*: 1px solid black;*/
             width: 340px;
             height: auto;
             margin: 20px auto;
@@ -128,9 +122,10 @@
             background: rgb(211, 211, 211);
             color: rgb(75, 75, 75);
         }
-        #footer {
-            position: absolute;
+        footer {
+            position: fixed;
             font-size: 11px;
+            margin: 0;
             bottom: 0;
             left: 0;
             background: white;
@@ -169,7 +164,6 @@
     <script language="JavaScript">
         $(document).ready(function () {
             var $banner = $(".banner").find("ul");
-
             var $bannerWidth = $banner
                 .children()
                 .outerWidth(); //이미지의 폭
@@ -276,13 +270,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href="http://blog.hallym.ac.kr/222133488229"><img src="banner_03.jpg" width="100%" height="100%">
+                                <a href="http://blog.hallym.ac.kr/222133488229"><img src="banner_03.jpg" width="100%" height="100%">
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href="http://blog.hallym.ac.kr/221996190155"><img src="banner_04.jpg" width="100%" height="100%">
+                                <a href="http://blog.hallym.ac.kr/221996190155"><img src="banner_04.jpg" width="100%" height="100%">
                                 </a>
                             </li>
                         </ul>
@@ -298,9 +290,9 @@
                 <a href="https://www.hallym.ac.kr/">홈페이지</a>
             </div>
         </div>
-        <div id="footer">
+        <footer id="footer">
             <p>Copyright © 2020 SEONGJIN. All rights reserved.</p>
-        </div>
+        </footer>
     </div>
 </body>
 </html>
